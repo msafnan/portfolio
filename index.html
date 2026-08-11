@@ -496,5 +496,14 @@
 
   btns.forEach((b) => b.addEventListener('click', () => setMode(b.dataset.mode)));
 </script>
+<script>
+  // Wake idle Render servers as soon as the page opens
+  ["https://rag-document-assistant-five.vercel.app/",
+   "https://real-estate-platform-rust-iota.vercel.app/"]
+    .forEach(function (url) {
+      fetch(url, { mode: "no-cors", cache: "no-store", keepalive: true })
+        .catch(function () { /* best-effort, ignore errors */ });
+    });
+</script>
 </body>
 </html>
